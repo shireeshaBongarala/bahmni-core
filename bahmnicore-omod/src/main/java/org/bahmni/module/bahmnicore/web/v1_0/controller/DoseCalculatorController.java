@@ -6,6 +6,7 @@ import org.openmrs.module.rulesengine.rule.BSABasedDoseRule;
 import org.openmrs.module.rulesengine.rule.WeightBasedDoseRule;
 import org.openmrs.module.webservices.rest.web.RestConstants;
 import org.openmrs.module.webservices.rest.web.v1_0.controller.BaseRestController;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping(value = "/rest/" + RestConstants.VERSION_1 + "/bahmnicore/calculateDose")
 public class DoseCalculatorController extends BaseRestController {
+
+    @Autowired
+    private RulesEngine rulesEgine;
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody

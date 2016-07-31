@@ -2,6 +2,7 @@ package org.bahmni.module.bahmnicore.web.v1_0.controller;
 
 import org.openmrs.api.APIException;
 import org.openmrs.module.rulesengine.domain.Dose;
+import org.openmrs.module.rulesengine.engine.RulesEngine;
 import org.openmrs.module.rulesengine.rule.BSABasedDoseRule;
 import org.openmrs.module.rulesengine.rule.WeightBasedDoseRule;
 import org.openmrs.module.webservices.rest.web.RestConstants;

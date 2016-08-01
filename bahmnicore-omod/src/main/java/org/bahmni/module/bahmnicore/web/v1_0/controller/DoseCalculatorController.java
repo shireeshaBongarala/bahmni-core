@@ -24,10 +24,12 @@ public class DoseCalculatorController extends BaseRestController {
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public Dose calculateDose(@RequestParam(value = "patientUuid") String patientUuid,
+                              @RequestParam(value = "drugName") String drugName,
                               @RequestParam(value = "baseDose") Double baseDose,
-                              @RequestParam(value = "doseUnit") String doseUnit) throws Exception {
+                              @RequestParam(value = "doseUnit") String doseUnit,
+                              @RequestParam(value = "orderSetName") String orderSetName) throws Exception {
 
-        return rulesEgine.calculateDose("drugName", patientUuid, baseDose, doseUnit, "ordersetname");
+        return rulesEgine.calculateDose(patientUuid,drugName, baseDose, doseUnit, orderSetName);
 
 //        if("mg/kg".equals(doseUnit)){
 //            return WeightBasedDoseRule.calculateDose(patientUuid, baseDose);

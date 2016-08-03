@@ -179,7 +179,7 @@
                 <scope>provided</scope>
             </dependency>
             <dependency>
-                <groupId>org.openmrs.module</groupId>
+                <groupId>org.bahmni.module</groupId>
                 <artifactId>bahmni-migrator</artifactId>
                 <version>0.84-SNAPSHOT</version>
                 <type>jar</type>

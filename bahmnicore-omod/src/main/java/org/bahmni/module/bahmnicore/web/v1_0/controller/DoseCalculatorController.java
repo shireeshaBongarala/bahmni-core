@@ -1,5 +1,6 @@
 package org.bahmni.module.bahmnicore.web.v1_0.controller;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.openmrs.api.APIException;
 import org.openmrs.module.rulesengine.domain.DosageRequest;
 import org.openmrs.module.rulesengine.domain.Dose;
@@ -21,7 +22,11 @@ public class DoseCalculatorController extends BaseRestController {
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public Dose calculateDose(@RequestBody DosageRequest request) throws Exception {
+    public Dose calculateDose(@RequestParam(value = "dosageRequest") String dosageRequest) throws Exception {
+      //  return new Dose("test",50, Dose.DoseUnit.mg);
+
+        ObjectMapper objectMapper=new ObjectMapper();
+        DosageRequest request= objectMapper.readValue(dosageRequest,DosageRequest.class);
         return rulesEgine.calculateDose(request);
     }
 }

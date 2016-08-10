@@ -3,10 +3,8 @@ package org.bahmni.module.bahmnicore.web.filter;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.bahmni.module.bahmnicore.extensions.BahmniExtensions;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.openmrs.module.rulesengine.domain.DosageRequest;
 import org.openmrs.module.rulesengine.rule.DosageRule;
-import org.openmrs.module.rulesengine.util.RulesEngineProperties;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
@@ -14,12 +12,13 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.*;
+import java.io.File;
 import java.io.IOException;
 
 public class DrugDosageCalculatorFilter implements Filter {
 
     protected final Log log = LogFactory.getLog(getClass());
-    private final String RulesEngineExtensionBasePathKey = "rulesengine.extension.path";
+    private final String rulesEngineExtensionPath = "rulesengine"+ File.separator+"rulesengineextension";
 
     @Override
     public void init(FilterConfig config) throws ServletException {
@@ -34,7 +33,6 @@ public class DrugDosageCalculatorFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
-        String rulesEngineExtensionPath = RulesEngineProperties.getProperty(RulesEngineExtensionBasePathKey);
         log.debug("Using rules extension path as: "+rulesEngineExtensionPath);
         if (rulesEngineExtensionPath != null) {
 

@@ -162,6 +162,14 @@ public class BahmniDiagnosisMetadata {
         updateRevisedConcept(matchingDiagnosisObs);
     }
 
+    public void addBahmniDiagnosisMetadataToDiagnosisObsGroup(Obs diagnosisObsGroup, BahmniDiagnosisRequest bahmniDiagnosisRequest){
+        updateFirstDiagnosis(diagnosisObsGroup, bahmniDiagnosisRequest);
+        if (diagnosisSchemaContainsStatus()) {
+            updateStatusConcept(diagnosisObsGroup, bahmniDiagnosisRequest);
+        }
+        updateRevisedConcept(diagnosisObsGroup);
+
+    }
     public boolean diagnosisSchemaContainsStatus() {
         Concept diagnosisSetConcept = getDiagnosisSetConcept();
         return diagnosisSetConcept.getSetMembers().contains(getBahmniDiagnosisStatusConcept());

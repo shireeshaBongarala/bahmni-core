@@ -498,10 +498,10 @@
             </snapshots>
         </repository>
         <repository>
-            <id>repo.mybahmni.org</id>
+            <id>repo.mybahmni.org-release</id>
             <name>bahmni-artifactory-releases</name>
             <url>s3://repo.mybahmni.org/release</url>
-        </repository>        
+        </repository>
         <repository>
             <id>rubygems-releases</id>
             <url>http://rubygems-proxy.torquebox.org/releases</url>

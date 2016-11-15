@@ -4236,4 +4236,20 @@
         <comment>Update the wards list sql to use left join for patient address</comment>
         <sqlFile path="V1_95_WardsListSql.sql"/>
     </changeSet>
+    <changeSet id="obsRelationship-ForeignKey-Update-201611151430" author="Santhosh, Chethan">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="obs_relationship"/>
+            <foreignKeyConstraintExists foreignKeyName="obs_relationship_ibfk_4"/>
+        </preConditions>
+        <comment>Update the foreign key constrain on obs_relationship, Consider user_id(users) for foreign key reference instead of person_id(person)</comment>
+        <sql>
+            ALTER TABLE obs_relationship
+            DROP FOREIGN KEY obs_relationship_ibfk_4;
+
+            ALTER TABLE obs_relationship
+            ADD CONSTRAINT obs_relationship_ibfk_4
+            FOREIGN KEY (creator)
+            REFERENCES users(user_id);
+        </sql>
+    </changeSet>
 </databaseChangeLog>

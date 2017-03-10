@@ -42,7 +42,7 @@
         <snapshotRepository>
             <id>bahmni-artifactory</id>
             <name>bahmni-artifactory-snapshots</name>
-            <url>http://bahmnirepo.thoughtworks.com/artifactory/libs-snapshot-local</url>
+            <url>http://repo.mybahmni.org.s3.amazonaws.com/artifactory/snapshot</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -492,7 +492,7 @@
         <repository>
             <id>bahmni-artifactory</id>
             <name>bahmni-artifactory-snapshots</name>
-            <url>http://bahmnirepo.thoughtworks.com/artifactory/libs-snapshot-local</url>
+            <url>http://repo.mybahmni.org.s3.amazonaws.com/artifactory/snapshot</url>
             <snapshots>
                 <updatePolicy>always</updatePolicy>
             </snapshots>
@@ -500,7 +500,7 @@
         <repository>
             <id>bahmni-artifactory-releases</id>
             <name>bahmni-artifactory-releases</name>
-            <url>http://bahmnirepo.thoughtworks.com/artifactory/libs-release-local</url>
+            <url>http://repo.mybahmni.org.s3.amazonaws.com/artifactory/release</url>
         </repository>        
         <repository>
             <id>rubygems-releases</id>
